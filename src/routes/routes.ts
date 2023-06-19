@@ -1,11 +1,7 @@
-const FeedbackModel = require('../models/feedback')
-
-const express = require('express');
+import FeedbackModel from '../models/feedback'
+import express from 'express'
 
 const router = express.Router()
-
-module.exports = router;
-
 
 const staticData = [
     {'name': 'Daniel', 'intro': "I'm an intern at Saltire"},
@@ -52,3 +48,5 @@ router.patch('/update/:id', (req, res) => {
 router.delete('/delete/:id', (req, res) => {
     res.send('Delete by ID API')
 })
+
+export default router

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
@@ -8,7 +8,7 @@ const feedbackSchema = new Schema({
     correctChoiceId: {type: String}
 })
 
-module.exports = mongoose.model("Feedback",feedbackSchema)
+export default mongoose.model('Feedback', feedbackSchema)
 
 //primsa client + orms optional
 //how to change scheme shape

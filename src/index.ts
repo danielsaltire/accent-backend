@@ -1,10 +1,15 @@
-require('dotenv').config();
+import * as dotenv from 'dotenv'
+import router from './routes/routes';
 
-const express = require('express')
-const mongoose = require('mongoose')
+import express from 'express'
+import mongoose from 'mongoose'
+
+
+// const cors = require('cors')
+import cors from 'cors'
+
+dotenv.config()
 const mongoString = process.env.DATABASE_URL;
-const cors = require('cors')
-
 
 
 mongoose.connect(mongoString);
@@ -27,8 +32,8 @@ app.listen(3000, () => {
 })
 
 
-const routes = require('./routes/routes')
+//const routes = require('./routes/routes')
 
-app.use('/api', routes)
+app.use('/api', router)
 
 export {express}
