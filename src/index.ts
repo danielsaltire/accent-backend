@@ -42,7 +42,7 @@ app.listen(3000, () => {
 })
 
 
-//const routes = require('./routes/routes')
+const routes = require('./routes/routes')
 
 
 export {express}
