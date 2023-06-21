@@ -1,19 +1,31 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.express = void 0;
+const dotenv_1 = __importDefault(require("dotenv"));
+const routes_1 = __importDefault(require("./routes/routes"));
+const express_1 = __importDefault(require("express"));
+exports.express = express_1.default;
+const mongoose_1 = __importDefault(require("mongoose"));
+// const cors = require('cors')
+const cors_1 = __importDefault(require("cors"));
+dotenv_1.default.config();
 const mongoString = process.env.DATABASE_URL;
-mongoose.connect(mongoString);
-const database = mongoose.connection;
+mongoose_1.default.connect(mongoString);
+const database = mongoose_1.default.connection;
 database.on('error', (error) => {
     console.log(error);
 });
+const app = (0, express_1.default)();
+app.use((0, cors_1.default)());
+app.use(express_1.default.json());
 database.once('connected', () => {
     console.log('Database Connected');
+    app.listen(3000, () => {
+        console.log(`Server Started at ${3000}`);
+    });
 });
-const app = express();
-app.use(express.json());
-app.listen(3000, () => {
-    console.log(`Server Started at ${3000}`);
-});
-const routes = require('./routes/routes');
-app.use('/api', routes);
+//const routes = require('./routes/routes')
+app.use('/api', routes_1.default);

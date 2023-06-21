@@ -1,4 +1,4 @@
-import * as dotenv from 'dotenv'
+import dotenv from 'dotenv'
 import router from './routes/routes';
 
 import express from 'express'
@@ -19,21 +19,28 @@ database.on('error', (error) => {
     console.log(error)
 })
 
+
+
+
+
+
 database.once('connected', () => {
     console.log('Database Connected');
-})
-const app = express();
+    const app = express();
 
-app.use(cors())
-app.use(express.json());
+    app.use(cors())
+    app.use(express.json());
+    app.use('/api', router)
+
 
 app.listen(3000, () => {
     console.log(`Server Started at ${3000}`)
+})
+    
 })
 
 
 //const routes = require('./routes/routes')
 
-app.use('/api', router)
 
 export {express}
