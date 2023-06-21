@@ -37,7 +37,7 @@ router.post('/postFeedback', (req, res) => __awaiter(void 0, void 0, void 0, fun
 }));
 //Get all Method
 router.get('/getAll', (req, res) => {
-    res.send('Get All API');
+    res.send(staticData[0]);
 });
 //Get by ID Method
 router.get('/getOne/:id', (req, res) => {

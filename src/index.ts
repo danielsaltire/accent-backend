@@ -37,8 +37,8 @@ app.use('/api', router)
     
 //})
 
-app.listen(3000, () => {
-    console.log(`Server Started at ${3000}`)
+app.listen(80, () => {
+    console.log(`Server Started at ${80}`)
 })
 
 
